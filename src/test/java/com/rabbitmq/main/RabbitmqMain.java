@@ -1,5 +1,7 @@
 package com.rabbitmq.main;
 
+import com.protocolBody.CmsProtocolbody;
+import com.protocolBody.Protocolbody;
 import com.rabbitmqCenter.RabbitmqCenter;
 import org.junit.Test;
 import cms.cmsconst.CmsProtocalEntity;
@@ -478,12 +480,26 @@ public class RabbitmqMain {
 
     @Test
     public void testCmsProtocal() throws Exception, Exception, Exception{
+
         ObjectMapper objectMapper = new ObjectMapper();
         JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, CmsProtocalEntity.class);
 //		String str = "[{\"displayWidth\":120,\"displayHeight\":10,\"dispScrType\":1,\"timeDelay\":12,\"transition\":3,\"param\":23,\"graphList\":[{\"graphXXX\":1,\"graphYYY\":2,\"graphId\":\"A21\"},{\"graphXXX\":2,\"graphYYY\":2,\"graphId\":\"A22\"}],\"wordList\":[{\"wordXXX\":2,\"wordYYY\":3,\"fontColor\":\"FF00FF\",\"fontBackColor\":\"00FF00\",\"fontShadowColor\":\"000000\",\"wordSpace\":12,\"fontSize_HH\":32,\"fontSize_WW\":32,\"wordContent\":\"小心驾驶\"},{\"wordXXX\":1,\"wordYYY\":3,\"fontColor\":\"FF00FF\",\"fontBackColor\":\"00FF00\",\"fontShadowColor\":\"000000\",\"wordSpace\":12,\"fontSize_HH\":32,\"fontSize_WW\":32,\"wordContent\":\"安全回家\"}]}]";
         String str = "[{\"displayWidth\":\"192\",\"displayHeight\":\"96\",\"dispScrType\":\"2\",\"timeDelay\":300,\"transition\":1,\"param\":0,\"graphList\":[],\"wordList\":[{\"wordXXX\":0,\"wordYYY\":0,\"fontColor\":\"#FFFF00\",\"fontBackColor\":\"\",\"fontShadowColor\":\"\",\"wordSpace\":0,\"fontName\":\"h\",\"fontSize_HH\":48,\"fontSize_WW\":48,\"wordContent\":\"阳光明媚\"},{\"wordXXX\":0,\"wordYYY\":48,\"fontColor\":\"#FFFF00\",\"fontBackColor\":\"\",\"fontShadowColor\":\"\",\"wordSpace\":0,\"fontName\":\"h\",\"fontSize_HH\":48,\"fontSize_WW\":48,\"wordContent\":\"风雨交加\"}]}]";
-
         List<CmsProtocalEntity> list = objectMapper.readValue(str, javaType);
+
+        CmsProtocolbody cmsProtocolbody  = new CmsProtocolbody();
+        JavaType javaTypeProtocolbody = objectMapper.getTypeFactory().constructParametricType(List.class, CmsProtocolbody.class);
+        String str2 = "\"businessno\":\"123456\",\"infoType\":\"MSG_CMD_CMS\",\"subPackage\":" +
+                "[{\"displayWidth\":\"192\",\"displayHeight\":\"96\",\"dispScrType\":\"2\",\"timeDelay\":300," +
+                "\"transition\":1,\"param\":0,\"graphList\":[],\"wordList\":[{\"wordXXX\":0," +
+                "\"wordYYY\":0,\"fontColor\":\"#FFFF00\",\"fontBackColor\":\"\"," +
+                "\"fontShadowColor\":\"\",\"wordSpace\":0,\"fontName\":\"h\",\"fontSize_HH\":48," +
+                "\"fontSize_WW\":48,\"wordContent\":\"路途漫漫\"},{\"wordXXX\":0,\"wordYYY\":48," +
+                "\"fontColor\":\"#FFFF00\",\"fontBackColor\":\"\",\"fontShadowColor\":\"\",\"wordSpace\":0," +
+                "\"fontName\":\"h\",\"fontSize_HH\":48,\"fontSize_WW\":48,\"wordContent\":\"文明相伴\"}]}]," +
+                "\"returnState\":[{\"returnCode\":\"000000\",\"returnMessage\":\"发送成功\"}]";
+
+        cmsProtocolbody = objectMapper.readValue(str, javaTypeProtocolbody);
 
         System.out.println(list);
     }
