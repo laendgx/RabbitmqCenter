@@ -4,6 +4,10 @@ import com.protocolBody.ReturnCode;
 
 import java.io.Serializable;
 
+/**
+ * 返回结果
+ *
+ */
 public class ReturnState implements Serializable {
 
     private static final long serialVersionUID = 7795348575057274545L;

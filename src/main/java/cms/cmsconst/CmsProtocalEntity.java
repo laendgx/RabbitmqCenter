@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 可变情报板播放表通用协议实体
+ * 情报板播放表通用协议实体
  *
  */
 public class CmsProtocalEntity implements Serializable{

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 情报板播放表文字部分描述
- * @author 孙冠义
  *
  */
 public class CMSWordParam implements Serializable{
