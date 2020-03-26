@@ -16,6 +16,10 @@ public class Protocolbody  implements Serializable {
      */
     private String businessno;
     /**
+     * 通讯标识及设备标识
+     */
+    private Identity identity;
+    /**
      * 消息传输类型
      */
     private InfoType infoType;
@@ -24,6 +28,9 @@ public class Protocolbody  implements Serializable {
      * 只在响应类消息中存在，非响应数据时为空，存放处理的结果。
      */
     private ReturnState returnState;
+
+    public Protocolbody() {
+    }
 
     public String getBusinessno() {
         return businessno;
@@ -49,4 +56,11 @@ public class Protocolbody  implements Serializable {
         this.returnState = returnState;
     }
 
+    public Identity getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(Identity identity) {
+        this.identity = identity;
+    }
 }

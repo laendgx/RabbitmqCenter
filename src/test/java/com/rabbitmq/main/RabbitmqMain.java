@@ -93,7 +93,9 @@ public class RabbitmqMain {
 
         CmsProtocolbody cmsProtocolbody  = new CmsProtocolbody();
         JavaType javaTypeProtocolbody = objectMapper.getTypeFactory().constructParametricType(List.class, CmsProtocolbody.class);
-        String str2 = "\"businessno\":\"123456\",\"infoType\":\"MSG_CMD_CMS\",\"subPackage\":" +
+        String str2 = "\"businessno\":\"123456\"," +
+                "\"identity\":{\"sourceId\":\"server_1\",\"targetId\":\"client_1\",\"devId\":\"22210001\",\"time\":\"2020-03-25 11:22:00\"}"+
+                "\"infoType\":\"MSG_CMD_CMS\",\"subPackage\":" +
                 "[{\"displayWidth\":\"192\",\"displayHeight\":\"96\",\"dispScrType\":\"2\",\"timeDelay\":300," +
                 "\"transition\":1,\"param\":0,\"graphList\":[],\"wordList\":[{\"wordXXX\":0," +
                 "\"wordYYY\":0,\"fontColor\":\"#FFFF00\",\"fontBackColor\":\"\"," +
@@ -104,6 +106,10 @@ public class RabbitmqMain {
                 "\"returnState\":[{\"returnCode\":\"000000\",\"returnMessage\":\"发送成功\"}]";
 
         cmsProtocolbody = objectMapper.readValue(str, javaTypeProtocolbody);
+
+//        JSONObject fromObject = JSONObject.fromObject(cmsProtocolbody);
+//        String string = fromObject.toString();
+//        System.out.println(string);
 
         System.out.println(list);
     }
