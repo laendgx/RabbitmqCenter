@@ -105,7 +105,7 @@ public class RabbitmqMain {
                 "\"fontName\":\"h\",\"fontSize_HH\":48,\"fontSize_WW\":48,\"wordContent\":\"文明相伴\"}]}]," +
                 "\"returnState\":[{\"returnCode\":\"000000\",\"returnMessage\":\"发送成功\"}]";
 
-        cmsProtocolbody = objectMapper.readValue(str, javaTypeProtocolbody);
+       // cmsProtocolbody = objectMapper.readValue(str, javaTypeProtocolbody);
 
 //        JSONObject fromObject = JSONObject.fromObject(cmsProtocolbody);
 //        String string = fromObject.toString();
